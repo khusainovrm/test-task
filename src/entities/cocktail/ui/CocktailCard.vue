@@ -1,13 +1,67 @@
 <template>
-  <div>{{ drink.idDrink }}</div>
+  <div class="p-2 flex flex-col gap-4 sm:gap-2 sm:flex-row">
+    <!--    content-->
+    <div class="flex-1 order-2 sm:order-1">
+      <h1 class="mb-2">{{ drink.strDrink }}</h1>
+
+      <section class="mb-8">
+        <p>{{ drink.strCategory }}</p>
+        <p>{{ drink.strAlcoholic }}</p>
+        <p>{{ drink.strGlass }}</p>
+      </section>
+
+      <section class="mb-8">
+        <h3>Instructions:</h3>
+        <p>{{ drink.strInstructions }}</p>
+      </section>
+
+      <section>
+        <h2>List of ingredients:</h2>
+        <p v-for="item in ingredients" :key="item">{{ item }}</p>
+      </section>
+    </div>
+
+    <!--    image-->
+    <div class="flex-1 order-1 sm:order-2">
+      <ImageLazy :src="drink.strDrinkThumb!" class="rounded-2xl aspect-[4/3] object-cover" alt="drink" />
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
 import type { Cocktail } from '@/entities/cocktail';
+import ImageLazy from '@/shared/ui/image/ImageLazy.vue';
+import { computed } from 'vue';
 
-defineProps<{
+const props = defineProps<{
   drink: Cocktail;
 }>();
+
+const ingredients = computed(() => {
+  const keys = Object.keys(props.drink);
+  const strIngredient = keys
+    .filter((str) => str.startsWith('strIngredient'))
+    .filter((i) => props.drink[i as keyof Cocktail]);
+  const strMeasure = keys.filter((str) => str.startsWith('strMeasure'));
+
+  return strIngredient.map((ingredient, index) => {
+    let foundMeasure = '';
+    const measure = strMeasure[index];
+    const ingredientNumber = +ingredient.replace('strIngredient', '');
+    const measureNumber = +measure.replace('strMeasure', '');
+    const isNumberMatch = ingredientNumber === measureNumber;
+    if (isNumberMatch) {
+      foundMeasure = measure;
+    } else {
+      foundMeasure = strMeasure.find((strM) => +strM.replace('strMeasure', '') === ingredientNumber) || '';
+    }
+    if (props.drink[foundMeasure as keyof Cocktail]) {
+      return `${props.drink[ingredient as keyof Cocktail]}:  ${props.drink[foundMeasure as keyof Cocktail]}`;
+    }
+
+    return props.drink[ingredient as keyof Cocktail];
+  });
+});
 </script>
 
 <style scoped></style>

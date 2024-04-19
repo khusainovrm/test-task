@@ -1,7 +1,11 @@
 <template>
-  <component :is="layout" class="app">
-    <RouterView />
-  </component>
+  <div class="wrapper">
+    <div class="fix-scroll-jumping">
+      <component :is="layout">
+        <RouterView />
+      </component>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -22,10 +26,17 @@ const layout = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-.app {
-  max-width: 1024px;
-  margin: 0 auto;
-  background: linear-gradient(180deg, #f2f8fd 0%, #dfe8ef 100%);
-  min-height: 100dvh;
+.wrapper {
+  overflow: hidden;
+}
+
+.fix-scroll-jumping {
+  padding: 0 calc(20px - (100vw - 100%)) 0 0;
+  margin-right: -20px;
+
+  @include mobile {
+    padding: 0;
+    margin-right: initial;
+  }
 }
 </style>

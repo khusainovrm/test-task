@@ -1,9 +1,9 @@
 <template>
-  <div class="p-4">
+  <div class="px-4 py-8 sm:py-12">
     <transition name="fade" mode="out-in">
       <div v-if="loading">loading</div>
       <div v-else-if="error">error</div>
-      <div v-else-if="drinks">
+      <div v-else-if="drinks" class="flex flex-col gap-8 sm:gap-12">
         <CocktailCard v-for="drink in drinks" :key="drink.idDrink" :drink="drink" />
       </div>
     </transition>
