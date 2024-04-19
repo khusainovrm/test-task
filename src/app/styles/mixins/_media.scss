@@ -1,0 +1,7 @@
+$descktop-small: 745px;
+
+@mixin sm {
+  @media (min-width: #{$descktop-small}) {
+    @content;
+  }
+}
