@@ -1,5 +1,5 @@
 import api from '@/shared/api';
-import type { CocktailResponse } from '@/entities/cocktail/model/types';
+import type { CocktailResponse } from '@/entities/cocktail';
 
 const API_URL = '/json/v1/1';
 

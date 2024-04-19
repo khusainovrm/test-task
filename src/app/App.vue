@@ -1,5 +1,5 @@
 <template>
-  <component :is="layout">
+  <component :is="layout" class="app">
     <RouterView />
   </component>
 </template>
@@ -20,3 +20,12 @@ const layout = computed(() => {
   return EmptyLayout;
 });
 </script>
+
+<style lang="scss" scoped>
+.app {
+  max-width: 1024px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #f2f8fd 0%, #dfe8ef 100%);
+  min-height: 100dvh;
+}
+</style>

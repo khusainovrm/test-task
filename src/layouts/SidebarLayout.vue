@@ -1,14 +1,15 @@
 <template>
-  <div class="h-full flex flex-col sm:flex-row">
+  <main class="flex flex-col sm:flex-row">
     <SideBar />
-    <div class="flex-1 overflow-auto">
-      <slot />
+    <div ref="contentDiv" id="contentDiv" class="flex-1 overflow-auto">
+      <transition name="fade" mode="out-in">
+        <slot :key="useRoute().params.id" />
+      </transition>
     </div>
-  </div>
+  </main>
 </template>
 
 <script setup lang="ts">
 import { SideBar } from '@/shared/ui/sidebar';
+import { useRoute } from 'vue-router';
 </script>
-
-<style scoped></style>

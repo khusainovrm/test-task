@@ -1,7 +1,7 @@
-$descktop-small: 745px;
+$descktop-small: 640px;
 
-@mixin sm {
-  @media (min-width: #{$descktop-small}) {
+@mixin mobile {
+  @media (max-width: #{$descktop-small}) {
     @content;
   }
 }

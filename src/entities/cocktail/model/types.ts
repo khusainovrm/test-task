@@ -6,19 +6,19 @@ export interface CocktailResponse {
 
 export interface Cocktail {
   idDrink: string;
-  strDrink: string;
-  strDrinkAlternate: any;
+  strDrink?: string;
+  strDrinkAlternate?: any;
   strTags?: string;
-  strVideo: any;
-  strCategory: string;
+  strVideo?: any;
+  strCategory?: string;
   strIBA?: string;
-  strAlcoholic: string;
-  strGlass: string;
-  strInstructions: string;
-  strDrinkThumb: string;
+  strAlcoholic?: string;
+  strGlass?: string;
+  strInstructions?: string;
+  strDrinkThumb?: string;
   strImageSource?: string;
   strImageAttribution?: string;
-  strCreativeCommonsConfirmed: string;
+  strCreativeCommonsConfirmed?: string;
   dateModified?: string;
 }
 
