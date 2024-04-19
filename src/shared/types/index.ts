@@ -1,3 +1,3 @@
-import { coctailCodes } from '@/shared/config/coctailCodes';
+import { cocktailCodes } from '@/shared/config/cocktailCodes';
 
-export type CoctailCode = (typeof coctailCodes)[number];
+export type CoctailCode = (typeof cocktailCodes)[number];

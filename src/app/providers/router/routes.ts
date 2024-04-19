@@ -1,12 +1,12 @@
 import type { RouteRecordRaw } from 'vue-router';
 import { RouteName } from '@/shared/config';
 import { LayoutNames } from '@/shared/config/layoutNames';
-import { coctailCodes } from '@/shared/config/coctailCodes';
+import { cocktailCodes } from '@/shared/config/cocktailCodes';
 
 export const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    redirect: `/${coctailCodes[0]}`,
+    redirect: `/${cocktailCodes[0]}`,
   },
   {
     path: '/:id',

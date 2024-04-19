@@ -1,4 +1,4 @@
-import type { Cocktail } from '@/entities/cocktail';
+import type { Cocktail } from './types';
 import { computed } from 'vue';
 
 /**
@@ -8,7 +8,7 @@ import { computed } from 'vue';
  * @returns {Object} - An object containing the computed variable `ingredients`.
  */
 export const useCocktailDetailed = (drink: Cocktail) => {
-  const extractNumber = (str: string, prefix: string) => Number(str.replace(prefix, ''));
+  const extractNumber = (str: string | undefined, prefix: string) => Number(str?.replace(prefix, ''));
   const findMeasure = (measureList: string[], ingredientNumber: number) =>
     measureList.find((strM) => extractNumber(strM, 'strMeasure') === ingredientNumber);
 

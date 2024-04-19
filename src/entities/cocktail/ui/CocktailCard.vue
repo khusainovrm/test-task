@@ -5,12 +5,12 @@
       <h1 class="mb-2">{{ drink.strDrink }}</h1>
 
       <section class="mb-8">
-        <p>{{ drink.strCategory }}</p>
-        <p>{{ drink.strAlcoholic }}</p>
-        <p>{{ drink.strGlass }}</p>
+        <p v-if="drink.strCategory">{{ drink.strCategory }}</p>
+        <p v-if="drink.strAlcoholic">{{ drink.strAlcoholic }}</p>
+        <p v-if="drink.strGlass">{{ drink.strGlass }}</p>
       </section>
 
-      <section class="mb-8">
+      <section v-if="drink.strInstructions" class="mb-8">
         <h3>Instructions:</h3>
         <p>{{ drink.strInstructions }}</p>
       </section>
@@ -23,7 +23,12 @@
 
     <!--    image-->
     <div class="flex-1 order-1 sm:order-2">
-      <ImageLazy :src="drink.strDrinkThumb!" class="rounded-2xl aspect-[4/3] object-cover" alt="drink" />
+      <ImageLazy
+        v-if="drink.strDrinkThumb"
+        :src="drink.strDrinkThumb"
+        class="rounded-2xl aspect-[4/3] object-cover"
+        alt="drink"
+      />
     </div>
   </div>
 </template>

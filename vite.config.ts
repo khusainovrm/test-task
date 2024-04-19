@@ -1,3 +1,5 @@
+/// <reference types="vitest" />
+
 import { fileURLToPath, URL } from 'node:url';
 
 import { defineConfig } from 'vite';
@@ -17,9 +19,12 @@ export default defineConfig({
       scss: {
         additionalData: `
             @import "@/app/styles/mixins";
-            @import "@/app/styles/variables";
           `,
       },
     },
+  },
+  test: {
+    environment: 'happy-dom',
+    include: ['./src/**/*.{test,spec}.?(c|m)[jt]s?(x)'],
   },
 });

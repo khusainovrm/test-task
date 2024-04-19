@@ -1,10 +1,10 @@
 import type { CoctailCode } from '@/shared/types';
 
 export interface CocktailResponse {
-  drinks: CocktailDetailed[];
+  drinks: Cocktail[];
 }
 
-export interface Cocktail {
+export type CocktailBase = {
   idDrink: string;
   strDrink?: string;
   strDrinkAlternate?: any;
@@ -20,9 +20,9 @@ export interface Cocktail {
   strImageAttribution?: string;
   strCreativeCommonsConfirmed?: string;
   dateModified?: string;
-}
+};
 
-export type CocktailDetailed = Cocktail & {
+export type Cocktail = CocktailBase & {
   [key: `strIngredient${number}`]: string;
   [key: `strMeasure${number}`]: string;
 };

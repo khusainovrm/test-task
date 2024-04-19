@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { searchCocktail } from '../api';
-import type { CocktailStoreState } from '@/entities/cocktail';
+import type { CocktailStoreState } from './types';
 import type { CoctailCode } from '@/shared/types';
 import { getErrorMessage } from '@/shared/api';
 
