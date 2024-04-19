@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const DEFAULT_ERROR_TEXT = "Произошла ошибка...";
+const DEFAULT_ERROR_TEXT = 'Произошла ошибка...';
 
 const api = axios.create({
   baseURL: 'https://www.thecocktaildb.com/api/',

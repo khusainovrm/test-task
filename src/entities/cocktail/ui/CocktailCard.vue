@@ -29,39 +29,13 @@
 </template>
 
 <script setup lang="ts">
-import type { Cocktail } from '@/entities/cocktail';
 import ImageLazy from '@/shared/ui/image/ImageLazy.vue';
-import { computed } from 'vue';
+import type { Cocktail } from '../model';
+import { useCocktailDetailed } from '../model';
 
 const props = defineProps<{
   drink: Cocktail;
 }>();
 
-const ingredients = computed(() => {
-  const keys = Object.keys(props.drink);
-  const strIngredient = keys
-    .filter((str) => str.startsWith('strIngredient'))
-    .filter((i) => props.drink[i as keyof Cocktail]);
-  const strMeasure = keys.filter((str) => str.startsWith('strMeasure'));
-
-  return strIngredient.map((ingredient, index) => {
-    let foundMeasure = '';
-    const measure = strMeasure[index];
-    const ingredientNumber = +ingredient.replace('strIngredient', '');
-    const measureNumber = +measure.replace('strMeasure', '');
-    const isNumberMatch = ingredientNumber === measureNumber;
-    if (isNumberMatch) {
-      foundMeasure = measure;
-    } else {
-      foundMeasure = strMeasure.find((strM) => +strM.replace('strMeasure', '') === ingredientNumber) || '';
-    }
-    if (props.drink[foundMeasure as keyof Cocktail]) {
-      return `${props.drink[ingredient as keyof Cocktail]}:  ${props.drink[foundMeasure as keyof Cocktail]}`;
-    }
-
-    return props.drink[ingredient as keyof Cocktail];
-  });
-});
+const { ingredients } = useCocktailDetailed(props.drink);
 </script>
-
-<style scoped></style>

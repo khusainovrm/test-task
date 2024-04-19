@@ -7,7 +7,7 @@
   <!-- MOBILE ONLY sidebar layout -->
   <div class="sm:hidden sticky z-10 top-0 h-8 bg-slate-500 w-full px-4 flex justify-end items-center">
     <HambergerIcon v-model="showMobileMenu" />
-    <SidebarMobileMenu v-if="showMobileMenu" v-model="showMobileMenu"/>
+    <SidebarMobileMenu v-if="showMobileMenu" v-model="showMobileMenu" />
   </div>
 </template>
 

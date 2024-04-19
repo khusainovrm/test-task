@@ -1,7 +1,7 @@
 import type { CoctailCode } from '@/shared/types';
 
 export interface CocktailResponse {
-  drinks: Cocktail[];
+  drinks: CocktailDetailed[];
 }
 
 export interface Cocktail {
