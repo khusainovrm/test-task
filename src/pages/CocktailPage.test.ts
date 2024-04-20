@@ -75,7 +75,7 @@ describe('CocktailPage', () => {
   test('after fetch text shown', async () => {
     const wrapper = mount(CocktailPage);
 
-    expect(wrapper.text()).toContain('loading');
+    expect(wrapper.text()).toContain('Loading...');
 
     await store.getCocktail(code);
 
