@@ -6,10 +6,7 @@
 [![vitest][vitest-badge]][vitest-url]
 [![tailwind][tailwind-badge]][tailwind-url]
 
-
 [![Feature-Sliced Design][shields-fsd-feature]](https://feature-sliced.design/)
-
-
 
 Задача:
 Реализовать приложение с выводом данных полученных по API.
@@ -18,10 +15,12 @@
 ![Yozhka](misc/app_example.png)
 
 Исходные данные:
+
 - Всю необходимую информацию запрашиваем по GET-запросу: https://www.thecocktaildb.com/api/json/v1/1/search.php?s=<cocktail_code>
 - Доступные cocktail_code: margarita, mojito, a1, kir
 
 Функциональные требования:
+
 - Использовать менеджер состояния для сохранения данных и исключения дублирующих запросов
 - Список кодов (cocktail_code) использовать для названия пунктов меню и формирования url-страниц
 - Каждый пункт меню ведет на страницу со своим описанием
@@ -33,6 +32,7 @@
 - lazy-loading для загрузки изображений
 
 Требования по стеку на выбор:
+
 - vue 2/3 + vuex/pinia, react + redux/mobx
 - webpack, vite
 - eslint
@@ -43,12 +43,12 @@
 - jest (опционально)
 
 По окончанию:
+
 - выложить в репозиторий
 
 ## Type Support for `.vue` Imports in TS
 
 TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
 
 ## Project Setup
 
@@ -86,8 +86,6 @@ npm run lintfix
 npm run test:run
 ```
 
-
-
 [typescript-badge]: https://badges.frapsoft.com/typescript/code/typescript.svg?v=101
 [typescript-url]: https://github.com/microsoft/TypeScript
 [prettier-badge]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg
@@ -99,5 +97,3 @@ npm run test:run
 [tailwind-badge]: https://img.shields.io/badge/utility-tailwind-yellow
 [tailwind-url]: https://vitest.dev/
 [shields-fsd-feature]: https://img.shields.io/badge/Feature--Sliced-Design?style=for-the-badge&labelColor=262224&color=F2F2F2&logoWidth=10&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAaCAYAAAC3g3x9AAAACXBIWXMAAALFAAACxQGJ1n/vAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABISURBVHgB7dKxCQAgDETR00EcwYEc0IEcwUUUBbsggikCuVekDHwSQFlYo/Y88KmktndFWMdk2cl5wSsbxGSZw8dm8pX9ZHUTdIYgGbPdU2QAAAAASUVORK5CYII=
-
-

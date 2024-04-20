@@ -9,7 +9,7 @@ export const routes: RouteRecordRaw[] = [
     redirect: `/${cocktailCodes[0]}`,
   },
   {
-    path: '/:id',
+    path: '/:id(\\margarita|mojito|a1|kir$)',
     name: RouteName.Cocktail,
     component: () => import('@/pages/CocktailPage.vue'),
     meta: {

@@ -2,14 +2,13 @@
   <main class="layout flex flex-col sm:flex-row">
     <SideBar />
     <div ref="contentDiv" id="contentDiv" class="flex-1 overflow-auto">
-      <slot :key="useRoute().params.id" />
+      <slot />
     </div>
   </main>
 </template>
 
 <script setup lang="ts">
 import { SideBar } from '@/shared/ui/sidebar';
-import { useRoute } from 'vue-router';
 </script>
 
 <style scoped lang="scss">

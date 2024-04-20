@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="relative">
     <input id="menu-toggle" type="checkbox" v-model="value" />
     <label class="menu-button-container" for="menu-toggle">
       <span class="menu-button" />

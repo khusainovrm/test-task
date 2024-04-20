@@ -1,8 +1,13 @@
 <template>
   <div class="px-4 py-8 sm:py-12">
     <transition name="fade" mode="out-in">
-      <div v-if="loading">loading</div>
-      <div v-else-if="error">error</div>
+      <div v-if="loading">Loading...</div>
+      <div v-else-if="error" class="w-full h-12 grid place-items-center">
+        <div class="flex flex-col items-center justify-center gap-4">
+          <h2>Error</h2>
+          <button @click="() => init()">reload</button>
+        </div>
+      </div>
       <div v-else-if="drinks" class="flex flex-col gap-8 sm:gap-12">
         <CocktailCard v-for="drink in drinks" :key="drink.idDrink" :drink="drink" />
       </div>
@@ -27,11 +32,15 @@ const drinks = computed(() => {
   return drinkRequests.value[routeIdParams.value]?.drinks || null;
 });
 
+const init = (id: CoctailCode = routeIdParams.value) => {
+  cocktailStore.getCocktail(id);
+};
+
 // init
-cocktailStore.getCocktail(routeIdParams.value);
+init();
 
 onBeforeRouteUpdate((to, _, next) => {
-  cocktailStore.getCocktail(to.params.id as CoctailCode);
+  init(to.params.id as CoctailCode);
   next();
 });
 </script>

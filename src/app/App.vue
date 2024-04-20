@@ -28,6 +28,9 @@ const layout = computed(() => {
 <style lang="scss" scoped>
 .wrapper {
   overflow: hidden;
+  @include mobile {
+    overflow: visible;
+  }
 }
 
 .fix-scroll-jumping {
