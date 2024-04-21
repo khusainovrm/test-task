@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full grid place-items-center">
+  <div class="h-dvh grid place-items-center">
     <div class="flex flex-col gap-4 items-center">
       <span class="text-4xl">Not found</span>
       <button @click="toMain">To main page</button>

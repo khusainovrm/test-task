@@ -1,7 +1,16 @@
 <template>
-  <div ref="htmlImg">
+  <div ref="htmlImg" :class="{ 'bg-slate-100': !error }">
     <transition name="fade">
-      <img v-if="visible" v-bind="$attrs" :src="src" :alt="alt" />
+      <img
+        v-if="visible"
+        v-bind="$attrs"
+        :src="src"
+        :alt="alt"
+        class="transition-opacity"
+        :class="{ 'opacity-0': !loaded, 'opacity-100': loaded }"
+        @load="loaded = true"
+        @error="error = true"
+      />
     </transition>
   </div>
 </template>
@@ -22,6 +31,8 @@ withDefaults(
 const observer = ref<IntersectionObserver | null>(null);
 const htmlImg = ref<HTMLImageElement | null>(null);
 const visible = ref(false);
+const loaded = ref(false);
+const error = ref(false);
 
 onMounted(() => {
   const el = htmlImg.value;
